@@ -1,0 +1,62 @@
+Tiempo de Inicio-> 1468535716 
+
+Checkar Movimientos de Ventas que No tengan movimientos de inventario.
+
+Numero de Facturas sacadas de sus Movimientos -> 32421
+
+* Comprarando...
+
+Numero de Facturas Comparadas -> 3418
+Numero de Facturas Descartadas por el Criterio de Busqueda -> 29003
+
+* Comprarando en Inventario...
+
+Numero de Facturas Comparadas -> 3416
+Numero de Facturas no Encontradas -> 2
+* Listado de Facturas no Encontradas:
+
+FER00032305
+FER00034777
+FER00035502
+
+
+* Comprarando Inventario por Movimientos...
+
+Numero de Movimientos con Errores en Cantidad -> 0
+Numero de Facturas con Movimientos Faltantes -> 3401
+
+
+Checkar Movimientos de Compras que No tengan movimientos de inventario.
+
+Numero de Compras sacadas de sus Movimientos -> 2044
+
+* Comprarando...
+
+Numero de Compras Comparadas -> 185
+Numero de Compras Descartadas por el Criterio de Busqueda -> 1859
+
+* Comprarando en Inventario...
+
+Numero de Compras Comparadas -> 185
+Numero de Compras no Encontradas -> 1
+* Listado de Compras no Encontradas:
+
+COMP010228
+
+Checkar Movimientos de Produccion que No tengan movimientos de inventario.
+
+
+Numero de Ordenes de Produccion Encontradas -> 658
+
+* Comprarando en Inventario...
+
+Numero de Ordenes de Produccion Comparadas -> 658
+Numero de Ordenes de Produccion no Encontradas -> 1
+* Listado de Ordenes de Produccion no Encontradas:
+
+OP002966
+
+
+Fin.
+Tiempo Final -> 1468536910 
+Tiempo Transcurrido -> 1194
