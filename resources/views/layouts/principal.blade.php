@@ -42,7 +42,7 @@
               <a class="btn btn-info" href="software"><i class="fa fa-th" aria-hidden="true"></i> Software</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-dark" href="agendador"><i class="fa calendar-o" aria-hidden="true"></i> Agenda</a>
+              <a class="btn btn-dark" href="agendador"><i class="fa fa-calendar-o" aria-hidden="true"></i> Agenda</a>
             </li>
             <li class="nav-item">
               <a class="btn btn-secondary" href="parametros"><i class="fa fa-cog" aria-hidden="true"></i></a>
