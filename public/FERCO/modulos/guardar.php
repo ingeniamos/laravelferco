@@ -4189,6 +4189,7 @@ else if (isset($_GET['Caja_Crear']))
 	$ReteIva = 0;
 	$ReteIca = 0;
 	$ReteFuente = 0;
+	$Desctarjeta = 0;
 	$Descuento = 0;
 	$ConceptoDcto = 0;
 	$Total = 0;
@@ -4224,6 +4225,7 @@ else if (isset($_GET['Caja_Crear']))
 		$ReteIva = $item['ReteIva'];
 		$ReteIca = $item['ReteIca'];
 		$ReteFuente = $item['ReteFuente'];
+		$Desctarjeta = $item['Desctarjeta'];
 		$Descuento = $item['Descuento'];
 		$ConceptoDcto =  $item['ConceptoDcto'];
 		$Total = $item['Total'];
@@ -4345,10 +4347,10 @@ else if (isset($_GET['Caja_Crear']))
 		$query = "INSERT INTO caja_final 
 		(`fecha`, `caja_interno`, `caja_recibo`, `cxp`, `categoria`, `grupo`, `subgrupo`, `subgrupo2`, 
 		`cliente_id`, `observaciones`, `efectivo`, `cheque`, `consignacion`, `total`, `saldo`, `digitado_por`, 
-		`fecha_digitado`, `rete_iva`, `rete_ica`, `rete_fuente`, `descuento`, `concepto_dcto`, `estado`) VALUES 
+		`fecha_digitado`, `rete_iva`, `rete_ica`, `rete_fuente`, `descuento`, `concepto_dcto`, `estado`, `tarjeta`) VALUES 
 		('".$Fecha."', '".$CajaInterno."', '".$ReciboCaja."', '".$CxP."', '".$Tipo."', '".$Grupo."', '".$SubGrupo."', '".$SubGrupo2."',
 		'".$ClienteID."', '".$Observaciones."', '".$Efectivo."', '".$Cheque."', '".$Consignacion."', '".$Total."', '".$Total."', 
-		'".$_SESSION["UserCode"]."', NOW(), '".$ReteIva."', '".$ReteIca."', '".$ReteFuente."', '".$Descuento."', '".$ConceptoDcto."', 'Pendiente')";
+		'".$_SESSION["UserCode"]."', NOW(), '".$ReteIva."', '".$ReteIca."', '".$ReteFuente."', '".$Descuento."', '".$ConceptoDcto."', 'Pendiente', '".$Desctarjeta."')";
 		$result = mysql_query($query) or die($DEBUG ? "SQL ERROR #3: ".mysql_error():"");
 	}
 	

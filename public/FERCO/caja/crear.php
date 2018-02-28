@@ -84,6 +84,8 @@ $(document).ready(function ()
 		$("#caja_crear_rete_ica_total<?php echo $NumOfID; ?>").val("0");
 		$("#caja_crear_rete_fuente<?php echo $NumOfID; ?>").val("0");
 		$("#caja_crear_rete_fuente_total<?php echo $NumOfID; ?>").val("0");
+		$("#caja_crear_desctarjeta<?php echo $NumOfID; ?>").val("0");
+		$("#caja_crear_desctarjeta_total<?php echo $NumOfID; ?>").val("0");
 		$("#caja_crear_otro_dcto<?php echo $NumOfID; ?>").val("0");
 		$("#caja_crear_total<?php echo $NumOfID; ?>").val("0");
 	};
@@ -114,6 +116,8 @@ $(document).ready(function ()
 			{id:"caja_crear_rete_ica_total<?php echo $NumOfID; ?>", type:""},
 			{id:"caja_crear_rete_fuente<?php echo $NumOfID; ?>", type:""},
 			{id:"caja_crear_rete_fuente_total<?php echo $NumOfID; ?>", type:""},
+			{id:"caja_crear_desctarjeta<?php echo $NumOfID; ?>", type:""},
+			{id:"caja_crear_desctarjeta_total<?php echo $NumOfID; ?>", type:""},
 			{id:"caja_crear_otro_dcto<?php echo $NumOfID; ?>", type:""},
 			{id:"caja_crear_dcto_concepto<?php echo $NumOfID; ?>", type:"jqxComboBox"},
 			{id:"caja_crear_total<?php echo $NumOfID; ?>", type:""},
@@ -155,6 +159,8 @@ $(document).ready(function ()
 				{id:"caja_crear_rete_ica_total<?php echo $NumOfID; ?>", type:"jqxNumberInput"},
 				{id:"caja_crear_rete_fuente<?php echo $NumOfID; ?>", type:"jqxNumberInput"},
 				{id:"caja_crear_rete_fuente_total<?php echo $NumOfID; ?>", type:"jqxNumberInput"},
+				{id:"caja_crear_desctarjeta<?php echo $NumOfID; ?>", type:"jqxNumberInput"},
+				{id:"caja_crear_desctarjeta_total<?php echo $NumOfID; ?>", type:"jqxNumberInput"},
 				{id:"caja_crear_otro_dcto<?php echo $NumOfID; ?>", type:"jqxNumberInput"},
 				{id:"caja_crear_dcto_concepto<?php echo $NumOfID; ?>", type:"jqxComboBox"},
 				//{id:"caja_crear_total<?php echo $NumOfID; ?>", type:"jqxNumberInput"},
@@ -204,6 +210,8 @@ $(document).ready(function ()
 				{id:"caja_crear_rete_ica_total<?php echo $NumOfID; ?>", type:"jqxNumberInput"},
 				{id:"caja_crear_rete_fuente<?php echo $NumOfID; ?>", type:"jqxNumberInput"},
 				{id:"caja_crear_rete_fuente_total<?php echo $NumOfID; ?>", type:"jqxNumberInput"},
+				{id:"caja_crear_desctarjeta<?php echo $NumOfID; ?>", type:"jqxNumberInput"},
+				{id:"caja_crear_desctarjeta_total<?php echo $NumOfID; ?>", type:"jqxNumberInput"},
 				{id:"caja_crear_otro_dcto<?php echo $NumOfID; ?>", type:"jqxNumberInput"},
 				{id:"caja_crear_dcto_concepto<?php echo $NumOfID; ?>", type:"jqxComboBox"},
 				//{id:"caja_crear_total<?php echo $NumOfID; ?>", type:"jqxNumberInput"},
@@ -255,9 +263,12 @@ $(document).ready(function ()
 				{ name: 'Aplicado_A', type: 'string' },
 				{ name: 'Observaciones', type: 'string' },
 				{ name: 'Efectivo', type: 'decimal' },
+				{ name: 'EfectivoT', type: 'decimal' },
 				{ name: 'Rete_IVA', type: 'decimal' },
 				{ name: 'Rete_ICA', type: 'decimal' },
 				{ name: 'Rete_Fuente', type: 'decimal' },
+				{ name: 'Desctarjeta', type: 'decimal' },
+				{ name: 'Total', type: 'decimal' },
 				{ name: 'Descuento', type: 'string' },
 				{ name: 'Descuento_Concepto', type: 'string'},
 				//--
@@ -295,10 +306,12 @@ $(document).ready(function ()
 				//$("#caja_crear_cliente_ID<?php echo $NumOfID; ?>").val(records[0]["ClienteID"]);
 				$("#caja_crear_aplicado_a<?php echo $NumOfID; ?>").val(records[0]["Aplicado_A"]);
 				$("#caja_crear_observaciones<?php echo $NumOfID; ?>").val(records[0]["Observaciones"]);
-				$("#caja_crear_recaudo_efectivo<?php echo $NumOfID; ?>").val(records[0]["Efectivo"]);
+				$("#caja_crear_recaudo_efectivo<?php echo $NumOfID; ?>").val(records[0]["Total"]);
+				$("#caja_crear_efectivo<?php echo $NumOfID; ?>").val(records[0]["EfectivoT"]);
 				$("#caja_crear_rete_iva_total<?php echo $NumOfID; ?>").val(records[0]["Rete_IVA"]);
 				$("#caja_crear_rete_ica_total<?php echo $NumOfID; ?>").val(records[0]["Rete_ICA"]);
 				$("#caja_crear_rete_fuente_total<?php echo $NumOfID; ?>").val(records[0]["Rete_Fuente"]);
+				$("#caja_crear_desctarjeta_total<?php echo $NumOfID; ?>").val(records[0]["Desctarjeta"]);
 				$("#caja_crear_otro_dcto<?php echo $NumOfID; ?>").val(records[0]["Descuento"]);
 				$("#caja_crear_dcto_concepto<?php echo $NumOfID; ?>").val(records[0]["Descuento_Concepto"]);
 				
@@ -1003,6 +1016,36 @@ $(document).ready(function ()
 	{
 		DoTheMath();
 	});
+
+	$("#caja_crear_desctarjeta<?php echo $NumOfID; ?>").jqxNumberInput({
+		theme: mytheme,
+		height: 25,
+		width: 55,
+		inputMode: 'simple',
+		textAlign: 'right',
+		symbol: '%',
+		symbolPosition: 'right',
+		digits: 3,
+		disabled: false
+	});
+	$('#caja_crear_desctarjeta<?php echo $NumOfID; ?>').on('change', function (event) 
+	{
+		DoTheMath();
+	});
+	
+	$("#caja_crear_desctarjeta_total<?php echo $NumOfID; ?>").jqxNumberInput({
+		theme: mytheme,
+		height: 25,
+		width: 180,
+		textAlign: 'right',
+		symbol: '$',
+		digits: 18,
+		disabled: true
+	});
+	$('#caja_crear_desctarjeta_total<?php echo $NumOfID; ?>').on('change', function (event) 
+	{
+		DoTheMath();
+	});
 	
 	$("#caja_crear_otro_dcto<?php echo $NumOfID; ?>").jqxNumberInput({
 		theme: mytheme,
@@ -1063,16 +1106,20 @@ $(document).ready(function ()
 		var iva_percent = parseFloat($('#caja_crear_rete_iva<?php echo $NumOfID; ?>').val());
 		var ica_percent = parseFloat($('#caja_crear_rete_ica<?php echo $NumOfID; ?>').val());
 		var fuente_percent = parseFloat($('#caja_crear_rete_fuente<?php echo $NumOfID; ?>').val());
+		var tarjeta_percent = parseFloat($('#caja_crear_desctarjeta<?php echo $NumOfID; ?>').val());
 		var iva_percent_total = parseFloat($('#caja_crear_rete_iva_total<?php echo $NumOfID; ?>').val());
 		var ica_percent_total = parseFloat($('#caja_crear_rete_ica_total<?php echo $NumOfID; ?>').val());
 		var fuente_percent_total = parseFloat($('#caja_crear_rete_fuente_total<?php echo $NumOfID; ?>').val());
+		var tarjeta_percent_total = parseFloat($('#caja_crear_desctarjeta_total<?php echo $NumOfID; ?>').val());
 		var total_percent = 0;
 		
 		if (Active)
 		{
 			total_percent = iva_percent_total + ica_percent_total + fuente_percent_total;
 			Total = caja_crear_efectivo + caja_crear_transferencias + cheques + total_percent + caja_crear_otro_dcto;
-			$('#caja_crear_efectivo<?php echo $NumOfID; ?>').val(caja_crear_efectivo);
+			tarjeta_percent_total = Math.round(caja_crear_efectivo / 100 * parseFloat(tarjeta_percent));
+			$('#caja_crear_desctarjeta_total<?php echo $NumOfID; ?>').val(tarjeta_percent_total);
+			$('#caja_crear_efectivo<?php echo $NumOfID; ?>').val(caja_crear_efectivo+tarjeta_percent_total);
 			$('#caja_crear_total<?php echo $NumOfID; ?>').val(Total);
 		}
 		else
@@ -1712,6 +1759,7 @@ $(document).ready(function ()
 		array["ReteIva"] = $('#caja_crear_rete_iva_total<?php echo $NumOfID; ?>').val();
 		array["ReteIca"] = $('#caja_crear_rete_ica_total<?php echo $NumOfID; ?>').val();
 		array["ReteFuente"] = $('#caja_crear_rete_fuente_total<?php echo $NumOfID; ?>').val();
+		array["Desctarjeta"] = $('#caja_crear_desctarjeta_total<?php echo $NumOfID; ?>').val();
 		array["Descuento"] = $('#caja_crear_otro_dcto<?php echo $NumOfID; ?>').val();
 		array["ConceptoDcto"] = $('#caja_crear_dcto_concepto<?php echo $NumOfID; ?>').val();
 		array["Total"] = $('#caja_crear_total<?php echo $NumOfID; ?>').val();
@@ -2893,6 +2941,17 @@ $(document).ready(function ()
 				</td>
 				<td style="padding:2px 0px;">
 					<div id="caja_crear_rete_fuente_total<?php echo $NumOfID; ?>"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Com. tarjeta
+				</td>
+				<td style="padding:2px 0px;">
+					<div id="caja_crear_desctarjeta<?php echo $NumOfID; ?>"></div>
+				</td>
+				<td style="padding:2px 0px;">
+					<div id="caja_crear_desctarjeta_total<?php echo $NumOfID; ?>"></div>
 				</td>
 			</tr>
 			<tr>
